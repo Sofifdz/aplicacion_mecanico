@@ -15,10 +15,10 @@ class Ver_clientes extends StatefulWidget {
 }
 
 class Ver_clientesState extends State<Ver_clientes> {
-  var bb = Hive.openBox('clientes');
-  var clientesbox = Hive.box('clientes').values.toList();
+  // var bb = Hive.openBox('clientes');
+  //var clientesbox = Hive.box('clientes').values.toList();
   List<dynamic> clientes = [];
-  var boxclientes = Hive.box('clientes');
+  //var boxclientes = Hive.box('clientes');
 
   @override
   Widget build(BuildContext context) {

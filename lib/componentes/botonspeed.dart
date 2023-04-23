@@ -12,7 +12,7 @@ class BotonEspeed extends StatelessWidget {
       backgroundColor: Colors.blue, //background color of button
       foregroundColor: Colors.white, //font color, icon color in button
       activeBackgroundColor:
-          Colors.green[700], //background color when menu is expanded
+          Colors.white, //background color when menu is expanded
       activeForegroundColor: Colors.black,
 
       visible: true,
@@ -23,27 +23,27 @@ class BotonEspeed extends StatelessWidget {
       children: [
         SpeedDialChild(
           child: Icon(Icons.car_repair, color: Colors.black),
-          backgroundColor: Colors.yellow[400],
+          backgroundColor: Colors.blue[300],
           label: 'Agregar vehiculo',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-          labelBackgroundColor: Colors.yellow[400],
+          labelBackgroundColor: Colors.blue[300],
         ),
         SpeedDialChild(
           child: Icon(Icons.create, color: Colors.black),
-          backgroundColor: Colors.amber[700],
+          backgroundColor: Colors.blue[500],
           label: 'Agregar Servicio',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-          labelBackgroundColor: Colors.amber[700],
+          labelBackgroundColor: Colors.blue[500],
         ),
         SpeedDialChild(
           child: Icon(Icons.person_add, color: Colors.black),
-          backgroundColor: Colors.pink[400],
+          backgroundColor: Colors.blue[700],
           label: 'Agregar Cliente',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-          labelBackgroundColor: Colors.pink[400],
+          labelBackgroundColor: Colors.blue[700],
         ),
       ],
     );

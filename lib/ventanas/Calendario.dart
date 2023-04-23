@@ -1,3 +1,4 @@
+import 'package:aplicacion_mecanico/componentes/TableCalendar.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -21,23 +22,21 @@ class _CalendarioState extends State<Calendario> {
         title: const Text('Calendario'),
         backgroundColor: Colors.blue[900],
       ),
-      body: Center(
-        child: TableCalendar(
-          firstDay: DateTime(2021),
-          lastDay: DateTime(2025),
-          focusedDay: _selectedDay,
-          calendarFormat: CalendarFormat.month,
-          selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-          onDaySelected: (selectedDay, focusedDay) {
-            setState(() {
-              _selectedDay = selectedDay;
-            });
-          },
-          eventLoader: (day) {
-            return _events[day] ?? [];
-          },
-        ),
+      body: Column(
+        children: [
+          TableCalendar_(),
+          SizedBox(
+            height: 100,
+          ),
+          botonagregar(context)
+        ],
       ),
     );
+  }
+
+  @override
+  // TODO: implement widget
+  Widget botonagregar(BuildContext context) {
+    return Row();
   }
 }
