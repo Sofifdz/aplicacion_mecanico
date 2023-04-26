@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive/hive.dart';
 
+import '../Agregar/AddCliente.dart';
+import 'ShowD_nuevocarro.dart';
+
 class BotonEspeed extends StatelessWidget {
   const BotonEspeed({super.key});
 
   Widget build(BuildContext context) {
+    List<dynamic> clientes = [];
+
     return SpeedDial(
       icon: Icons.add, //icon on Floating action button
       activeIcon: Icons.close, //icon when menu is expanded on button
@@ -24,6 +29,7 @@ class BotonEspeed extends StatelessWidget {
         SpeedDialChild(
           child: Icon(Icons.car_repair, color: Colors.black),
           backgroundColor: Colors.blue[300],
+          onTap: () => NewCarroDeClienteDialog.show(context),
           label: 'Agregar vehiculo',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
@@ -40,6 +46,20 @@ class BotonEspeed extends StatelessWidget {
         SpeedDialChild(
           child: Icon(Icons.person_add, color: Colors.black),
           backgroundColor: Colors.blue[700],
+          onTap: () => Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return AddCliente();
+            },
+          )).then(
+            (value) {
+              if (value != null) clientes.add(value);
+              if (value != null) {
+                var clientee = value;
+                var box = Hive.box('clientes');
+                box.add(clientee);
+              }
+            },
+          ),
           label: 'Agregar Cliente',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),

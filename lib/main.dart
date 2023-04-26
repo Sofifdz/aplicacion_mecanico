@@ -8,22 +8,18 @@ import 'componentes/botonNavBar.dart';
 Future<void> main() async {
   runApp(const MyApp());
   await Hive.initFlutter();
-  // var box = await Hive.openBox('someBox');
-  List<Map<String, dynamic>> clientes = [];
 
+  await Hive.openBox('clientes');
   Hive.registerAdapter(ClienteAdapter());
-  var boxclientes = await Hive.openBox('clientes');
-  print(boxclientes);
+  List<Map<String, dynamic>> clientes = [];
 }
 
 Future<void> Vehiculo() async {
   await Hive.initFlutter();
-  // var box = await Hive.openBox('someBox');
-  List<Map<String, dynamic>> vehiculos = [];
 
+  await Hive.openBox('vehiculos');
   Hive.registerAdapter(VehiculoAdapter());
-  var boxvehiculos = await Hive.openBox('vehiculos');
-  print(boxvehiculos);
+  List<Map<String, dynamic>> vehiculos = [];
 }
 
 class MyApp extends StatelessWidget {
