@@ -1,3 +1,4 @@
+import 'package:aplicacion_mecanico/visualizacion/detalles_de_cliente.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
@@ -88,14 +89,14 @@ class Ver_clientesState extends State<Ver_clientes> {
                     //  },
                     onSelected: (value) {
                       if (value == 1) {
-                        /*  Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) {
                               return Ver_DatosCliente();
                             },
                           ),
-                        );*/
+                        );
                       }
                       if (value == 2) {}
                       if (value == 3) {

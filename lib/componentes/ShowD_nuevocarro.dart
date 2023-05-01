@@ -7,7 +7,7 @@ import '../Agregar/AddVehiculo.dart';
 class NewCarroDeClienteDialog {
   static void show(BuildContext context) {
     var boxclientes = Hive.box('clientes').values.toList();
-
+    TextEditingController clientecontroller = TextEditingController();
     final _formKey = GlobalKey<FormState>();
 
     showDialog(
@@ -48,7 +48,9 @@ class NewCarroDeClienteDialog {
                     ),
                     Expanded(
                       child: DropdownButtonFormField(
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          clientecontroller.text = value.toString();
+                        },
                         validator: (value) {
                           validator:
                           (value) => value == null
@@ -92,11 +94,8 @@ class NewCarroDeClienteDialog {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => VAgregarVehiculo()),
-                        );
+                        var cliente = clientecontroller.text;
+                        Navigator.pop(context, AddCliente());
                       },
                       child: Text('Agregar Vehiculo'),
                       style: ElevatedButton.styleFrom(
