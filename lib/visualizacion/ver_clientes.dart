@@ -27,6 +27,8 @@ class Ver_clientesState extends State<Ver_clientes> {
         toolbarHeight: 70,
         centerTitle: true,
         title: const Text('Clientes'),
+        titleTextStyle:
+            GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
         backgroundColor: Colors.blue[900],
         actions: <Widget>[
           IconButton(
@@ -73,14 +75,20 @@ class Ver_clientesState extends State<Ver_clientes> {
                       PopupMenuItem(
                         value: 1,
                         child: Text("Mas detalles"),
+                        textStyle: GoogleFonts.hanuman(
+                            color: Colors.black, fontSize: 15),
                       ),
                       PopupMenuItem(
                         value: 2,
                         child: Text("Agregar Carro"),
+                        textStyle: GoogleFonts.hanuman(
+                            color: Colors.black, fontSize: 15),
                       ),
                       PopupMenuItem(
                         value: 3,
                         child: Text("Eliminar Cliente"),
+                        textStyle: GoogleFonts.hanuman(
+                            color: Colors.black, fontSize: 15),
                       ),
                     ],
                     initialValue: 0,
@@ -105,22 +113,39 @@ class Ver_clientesState extends State<Ver_clientes> {
                             builder: (buildcontext) {
                               return AlertDialog(
                                 title: Text('Eliminar Cliente'),
+                                titleTextStyle: GoogleFonts.montserrat(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
                                 content: const Text(
                                     "¿Seguro que quieres eliminar este cliente? (se eliminaran los carros agregados)"),
+                                contentTextStyle: GoogleFonts.hanuman(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: const Text('Cancelar'),
+                                    child: Text('Cancelar',
+                                        style: GoogleFonts.hanuman(
+                                            color: Colors.blue,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold)),
                                   ),
                                   TextButton(
-                                      onPressed: () {
-                                        Hive.box('clientes').deleteAt(index);
-                                        Navigator.pop(context);
-                                        setState(() {});
-                                      },
-                                      child: Text('Aceptar'))
+                                    onPressed: () {
+                                      Hive.box('clientes').deleteAt(index);
+                                      Navigator.pop(context);
+                                      setState(() {});
+                                    },
+                                    child: Text('Aceptar',
+                                        style: GoogleFonts.hanuman(
+                                            color: Colors.blue,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold)),
+                                  )
                                 ],
                               );
                             });

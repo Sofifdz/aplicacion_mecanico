@@ -91,8 +91,11 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Agregar vehiculo'),
+        toolbarHeight: 70,
+        centerTitle: true,
+        titleTextStyle:
+            GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
         backgroundColor: Colors.blue[900],
-        foregroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
           child: Stack(
@@ -143,10 +146,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Marca',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -185,10 +188,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Modelo',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -230,10 +233,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Año',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -273,10 +276,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Motor',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -314,10 +317,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Color',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -355,10 +358,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Vin',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -396,10 +399,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Kms',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -443,10 +446,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 ),
                 Text(
                   'Placas',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 38,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -482,10 +485,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
               children: [
                 Text(
                   'Fecha de agregado',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 30,
+                  style: GoogleFonts.hanuman(
+                    fontSize: 35,
                     fontWeight: FontWeight.w700,
-                    color: Colors.grey.shade800,
+                    color: Colors.black,
                     letterSpacing: 3,
                   ),
                 ),
@@ -533,7 +536,10 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                     backgroundColor: Colors.blue[900],
                     minimumSize: Size(150, 60),
                   ),
-                  child: Text('Cancelar'),
+                  child: Text(
+                    'Cancelar',
+                    style: GoogleFonts.hanuman(fontSize: 18),
+                  ),
                 ),
                 SizedBox(width: 20),
                 ElevatedButton(
@@ -559,12 +565,15 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     backgroundColor: Colors.blue[900],
                     minimumSize: Size(150, 60),
                   ),
-                  child: Text('Agregar Vehiculo'),
+                  child: Text(
+                    'Agregar Vehiculo',
+                    style: GoogleFonts.hanuman(fontSize: 16),
+                  ),
                 ),
               ],
             ),

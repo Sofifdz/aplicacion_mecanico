@@ -1,9 +1,11 @@
+import 'package:aplicacion_mecanico/calendario2.0/ver.dart';
+import 'package:aplicacion_mecanico/ventanas/Calendario.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:aplicacion_mecanico/visualizacion/ver_clientes.dart';
 import 'package:aplicacion_mecanico/ventanas/Taller.dart';
-import 'package:aplicacion_mecanico/ventanas/Calendario.dart';
+
 import 'package:aplicacion_mecanico/ventanas/reportes.dart';
 
 class BotonNav extends StatefulWidget {
@@ -20,7 +22,7 @@ class _BotonNavState extends State<BotonNav> {
   static const List<Widget> _widgetOptions = <Widget>[
     Ver_clientes(),
     Taller(),
-    Calendario(),
+    Calendariop(),
     Reportes(),
   ];
 

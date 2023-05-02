@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-class Calendario extends StatelessWidget {
-  const Calendario({super.key});
+class Calendariop extends StatelessWidget {
+  const Calendariop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +16,16 @@ class Calendario extends StatelessWidget {
         appBar: AppBar(
           title: Text('Calendario'),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              SizedBox(height: 500, child: body(context)),
-              SizedBox(
-                height: 50,
-              ),
-              boton(context)
-            ],
+        body: body(context),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => AgregarCita()));
+          },
+          child: Icon(
+            Icons.add,
+            color: Colors.black,
           ),
         ));
   }
@@ -48,19 +48,6 @@ class Calendario extends StatelessWidget {
           builder: (context) => TasksWidget(),
         );
       },
-    );
-  }
-
-  Widget boton(BuildContext context) {
-    return Row(
-      children: [
-        ElevatedButton(
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => AgregarCita()));
-            },
-            child: Text('Agregar cita')),
-      ],
     );
   }
 }

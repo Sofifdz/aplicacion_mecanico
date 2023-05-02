@@ -1,3 +1,4 @@
+import 'package:aplicacion_mecanico/componentes/showD_Nuevoservicio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive/hive.dart';
@@ -38,6 +39,7 @@ class BotonEspeed extends StatelessWidget {
         SpeedDialChild(
           child: Icon(Icons.create, color: Colors.black),
           backgroundColor: Colors.blue[500],
+          onTap: () => NuevoServicioDialog.show(context),
           label: 'Agregar Servicio',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),

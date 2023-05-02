@@ -29,6 +29,8 @@ class _AddClienteState extends State<AddCliente> {
           toolbarHeight: 70,
           centerTitle: true,
           title: const Text('Agregar Cliente'),
+          titleTextStyle:
+              GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
           backgroundColor: Colors.blue[900],
         ),
         body: SingleChildScrollView(
@@ -79,19 +81,16 @@ class _AddClienteState extends State<AddCliente> {
         padding: EdgeInsets.all(12.0),
         child: Row(
           children: [
-            Icon(
-              Icons.person,
-              size: 30,
-            ),
             SizedBox(
               width: 5,
             ),
             Text(
               'Nombre',
-              style: GoogleFonts.montserrat(
-                fontSize: 25,
-                //fontWeight: FontWeight.w700,
+              style: GoogleFonts.hanuman(
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
                 color: Colors.black,
+                letterSpacing: 0,
               ),
             ),
           ],
@@ -110,9 +109,10 @@ class _AddClienteState extends State<AddCliente> {
                 return null;
               },
               controller: nombrecontroller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
+                fillColor: Color.fromARGB(87, 141, 142, 143),
                 filled: true,
-                fillColor: Color.fromARGB(255, 216, 216, 216),
+                border: OutlineInputBorder(),
               ),
             )),
           ],
@@ -123,19 +123,16 @@ class _AddClienteState extends State<AddCliente> {
         padding: EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Icon(
-              Icons.phone,
-              size: 30,
-            ),
             SizedBox(
               width: 5,
             ),
             Text(
               'Telefono',
-              style: GoogleFonts.montserrat(
-                fontSize: 25,
-                //fontWeight: FontWeight.w700,
+              style: GoogleFonts.hanuman(
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
                 color: Colors.black,
+                letterSpacing: 0,
               ),
             ),
             SizedBox(
@@ -151,9 +148,10 @@ class _AddClienteState extends State<AddCliente> {
                 return null;
               },
               controller: telefonocontroller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
+                fillColor: Color.fromARGB(87, 141, 142, 143),
                 filled: true,
-                fillColor: Color.fromARGB(255, 216, 216, 216),
+                border: OutlineInputBorder(),
               ),
             )),
           ],
@@ -164,19 +162,16 @@ class _AddClienteState extends State<AddCliente> {
         padding: EdgeInsets.all(12.0),
         child: Row(
           children: [
-            Icon(
-              Icons.mail,
-              size: 30,
-            ),
             SizedBox(
               width: 5,
             ),
             Text(
               'Correo Electronico',
-              style: GoogleFonts.montserrat(
-                fontSize: 25,
-                //fontWeight: FontWeight.w700,
+              style: GoogleFonts.hanuman(
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
                 color: Colors.black,
+                letterSpacing: 0,
               ),
             ),
           ],
@@ -195,9 +190,10 @@ class _AddClienteState extends State<AddCliente> {
                 return null;
               },
               controller: emailcontroller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
+                fillColor: Color.fromARGB(87, 141, 142, 143),
                 filled: true,
-                fillColor: Color.fromARGB(255, 216, 216, 216),
+                border: OutlineInputBorder(),
               ),
             )),
           ],
@@ -207,19 +203,16 @@ class _AddClienteState extends State<AddCliente> {
         padding: EdgeInsets.all(12.0),
         child: Row(
           children: [
-            Icon(
-              Icons.location_city,
-              size: 30,
-            ),
             SizedBox(
               width: 5,
             ),
             Text(
               'Domicilio',
-              style: GoogleFonts.montserrat(
-                fontSize: 25,
-                //fontWeight: FontWeight.w700,
+              style: GoogleFonts.hanuman(
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
                 color: Colors.black,
+                letterSpacing: 0,
               ),
             ),
           ],
@@ -238,9 +231,10 @@ class _AddClienteState extends State<AddCliente> {
                 return null;
               },
               controller: ciudadcontroller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
+                fillColor: Color.fromARGB(87, 141, 142, 143),
                 filled: true,
-                fillColor: Color.fromARGB(255, 216, 216, 216),
+                border: OutlineInputBorder(),
               ),
             )),
           ],
@@ -262,11 +256,15 @@ class _AddClienteState extends State<AddCliente> {
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 backgroundColor: Colors.blue[900],
+                minimumSize: Size(150, 60),
               ),
-              child: Text('Cancelar'),
+              child: Text(
+                'Cancelar',
+                style: GoogleFonts.hanuman(fontSize: 19),
+              ),
             ),
           ),
           SizedBox(
@@ -302,8 +300,12 @@ class _AddClienteState extends State<AddCliente> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 backgroundColor: Colors.blue[900],
+                minimumSize: Size(150, 60),
               ),
-              child: Text('Agregar Cliente'),
+              child: Text(
+                'Agregar Cliente',
+                style: GoogleFonts.hanuman(fontSize: 17),
+              ),
             ),
           ),
         ]),

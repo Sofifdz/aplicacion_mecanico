@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
-import '../Agregar/AddCliente.dart';
-import '../Agregar/AddVehiculo.dart';
 
-class NewCarroDeClienteDialog {
+class NuevoServicioDialog {
   static void show(BuildContext context) {
+    var box = Hive.box('clientes');
     var boxclientes = Hive.box('clientes').values.toList();
-    TextEditingController clientecontroller = TextEditingController();
     final _formKey = GlobalKey<FormState>();
-
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
-          key: _formKey,
           backgroundColor: Colors.blue[200],
           children: <Widget>[
             Row(
               children: [
                 SizedBox(
-                  width: 45,
+                  width: 55,
                 ),
                 Text(
-                  'Nuevo Vehiculo',
+                  'Servicio Nuevo',
                   style: GoogleFonts.montserrat(
                       fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  width: 4,
                 ),
                 IconButton(
                     onPressed: () {
@@ -58,15 +51,7 @@ class NewCarroDeClienteDialog {
                     ),
                     Expanded(
                       child: DropdownButtonFormField(
-                        onChanged: (value) {
-                          clientecontroller.text = value.toString();
-                        },
-                        validator: (value) {
-                          validator:
-                          (value) => value == null
-                              ? 'Please fill in your gender'
-                              : null;
-                        },
+                        onChanged: (value) {},
                         items: boxclientes
                             .map(
                               (clientes) => DropdownMenuItem(
@@ -97,29 +82,69 @@ class NewCarroDeClienteDialog {
               ],
             ),
             SizedBox(
+              height: 25,
+            ),
+            Center(
+              child: Text(
+                'Escoja el Vehiculo',
+                style: GoogleFonts.hanuman(fontSize: 15),
+              ),
+            ),
+            SizedBox(
               height: 20,
             ),
             Column(
               children: [
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                      child: DropdownButtonFormField(
+                        items: [
+                          DropdownMenuItem(
+                            child: Text('op1'),
+                            value: 'opcion1',
+                          ),
+                          DropdownMenuItem(
+                            child: Text('op2'),
+                            value: 'opcion2',
+                          ),
+                          DropdownMenuItem(
+                            child: Text('op3'),
+                            value: 'opcion3',
+                          ),
+                        ],
+                        onChanged: (Object? value) {},
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Color.fromRGBO(217, 217, 217, 1.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        var cliente = clientecontroller.text;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => VAgregarVehiculo()),
-                        );
+                        Navigator.pop(context);
                       },
-                      child: Text('Agregar Vehiculo'),
+                      child: Text('Cancelar'),
                       style: ElevatedButton.styleFrom(
                           textStyle: GoogleFonts.hanuman(
-                              fontSize: 12, color: Colors.black),
+                              fontSize: 15, color: Colors.black),
                           backgroundColor: Colors.lightBlue,
                           shape: StadiumBorder(),
                           elevation: 20,
@@ -130,24 +155,16 @@ class NewCarroDeClienteDialog {
                       width: 15,
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => AddCliente()),
-                        );
-                      },
-                      child: Text('Nuevo Cliente'),
+                      onPressed: () {},
+                      child: Text('Continuar'),
                       style: ElevatedButton.styleFrom(
                           textStyle: GoogleFonts.hanuman(
-                              fontSize: 12, color: Colors.black),
+                              fontSize: 15, color: Colors.black),
                           backgroundColor: Colors.lightBlue,
                           shape: StadiumBorder(),
                           elevation: 20,
                           shadowColor: Color.fromARGB(255, 55, 64, 65),
                           minimumSize: Size(100, 50)),
-                    ),
-                    SizedBox(
-                      height: 25,
                     ),
                   ],
                 )

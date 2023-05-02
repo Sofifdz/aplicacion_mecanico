@@ -21,6 +21,8 @@ class Ver_DatosClienteState extends State<Ver_DatosCliente> {
         toolbarHeight: 70,
         centerTitle: true,
         title: const Text('Detalles'),
+        titleTextStyle:
+            GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
         backgroundColor: Colors.blue[900],
       ),
       body: ListView.builder(

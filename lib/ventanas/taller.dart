@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 
 import '../componentes/barradbusqueda.dart';
@@ -19,6 +20,8 @@ class Taller extends StatelessWidget {
         toolbarHeight: 70,
         centerTitle: true,
         title: const Text('Taller'),
+        titleTextStyle:
+            GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
         backgroundColor: Colors.blue[900],
         actions: <Widget>[
           IconButton(
