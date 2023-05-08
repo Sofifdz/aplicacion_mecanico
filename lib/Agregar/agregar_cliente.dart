@@ -30,6 +30,9 @@ class _AddClienteState extends State<AddCliente> {
   final _formKey = GlobalKey<FormState>();
 
   List<Vehiculo> vehiculos = [];
+  var box = Hive.box('clientes');
+  var clientesbox = Hive.box('clientes').values.toList();
+  List<dynamic> clientes = [];
 
   @override
   Widget build(BuildContext context) {
@@ -414,15 +417,12 @@ class _AddClienteState extends State<AddCliente> {
                       ciudad: ciudadcontroller.text,
                       vehiculos: vehiculos,
                     ));
-                showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                          title: Text(
-                            'Cliente Agregado correctamente',
-                            style: GoogleFonts.aBeeZee(fontSize: 14),
-                          ),
-                          backgroundColor: Colors.blue[250],
-                        ));
+                setState(() {
+                  clientes = box.values.toList();
+                });
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Cliente Agregado')),
+                );
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
