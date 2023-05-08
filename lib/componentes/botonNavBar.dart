@@ -1,5 +1,7 @@
 import 'package:aplicacion_mecanico/calendario2.0/ver.dart';
 import 'package:aplicacion_mecanico/ventanas/Calendario.dart';
+import 'package:aplicacion_mecanico/visualizacion/ver_vehiculos.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +23,7 @@ class _BotonNavState extends State<BotonNav> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
     Ver_clientes(),
-    Taller(),
+    Ver_Vehiculos(),
     Calendariop(),
     Reportes(),
   ];

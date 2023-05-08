@@ -1,10 +1,8 @@
-import 'package:aplicacion_mecanico/componentes/showD_Nuevoservicio.dart';
+import 'package:aplicacion_mecanico/Agregar/agregar_cliente.dart';
+import 'package:aplicacion_mecanico/componentes/NewCarrodeCliente.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive/hive.dart';
-
-import '../Agregar/AddCliente.dart';
-import 'ShowD_nuevocarro.dart';
 
 class BotonEspeed extends StatelessWidget {
   const BotonEspeed({super.key});
@@ -30,7 +28,14 @@ class BotonEspeed extends StatelessWidget {
         SpeedDialChild(
           child: Icon(Icons.car_repair, color: Colors.black),
           backgroundColor: Colors.blue[300],
-          onTap: () => NewCarroDeClienteDialog.show(context),
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return NewCarroDeClienteDialog(); // aquí creas una instancia de la clase
+              },
+            );
+          },
           label: 'Agregar vehiculo',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
@@ -39,7 +44,6 @@ class BotonEspeed extends StatelessWidget {
         SpeedDialChild(
           child: Icon(Icons.create, color: Colors.black),
           backgroundColor: Colors.blue[500],
-          onTap: () => NuevoServicioDialog.show(context),
           label: 'Agregar Servicio',
           labelStyle:
               TextStyle(fontWeight: FontWeight.w500, color: Colors.black),

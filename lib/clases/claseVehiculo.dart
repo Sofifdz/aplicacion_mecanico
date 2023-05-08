@@ -4,30 +4,35 @@ import 'package:hive/hive.dart';
 @HiveType(typeId: 1)
 class Vehiculo extends HiveObject {
   @HiveField(0)
-  String imagen = '';
+  String id;
   @HiveField(1)
-  String marca = '';
+  String imagen;
   @HiveField(2)
-  String modelo = '';
+  String marca;
   @HiveField(3)
-  String anio = '';
+  String modelo;
   @HiveField(4)
-  String motor = '';
+  String anio;
   @HiveField(5)
-  String color = '';
+  String motor;
   @HiveField(6)
-  String vn = '';
+  String color;
   @HiveField(7)
-  double kms = 0;
+  String vn;
   @HiveField(8)
-  String placas = '';
+  String kms;
   @HiveField(9)
-  String fecha = '';
+  String placas;
   @HiveField(10)
-  String cliente = '';
+  String fecha;
+  @HiveField(11)
+  String? clienteNombre;
+
 
   Vehiculo(
-      {required this.imagen,
+      {
+      required this.id,
+      required this.imagen,
       required this.marca,
       required this.modelo,
       required this.anio,
@@ -37,10 +42,11 @@ class Vehiculo extends HiveObject {
       required this.kms,
       required this.placas,
       required this.fecha,
-      required this.cliente}) {}
+      required this.clienteNombre}) {}
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'imagen': imagen,
       'marca': marca,
       'modelo': modelo,
@@ -51,13 +57,13 @@ class Vehiculo extends HiveObject {
       'kms': kms,
       'placas': placas,
       'fecha': fecha,
-      'cliente': cliente
+      'cliente': clienteNombre
     };
   }
 
   @override
   String toString() {
-    return 'Vehiculo{imagen: $imagen, marca: $marca, modelo: $modelo,anio: $anio,motor:$motor, color: $color,vn: $vn,kms: $kms,placas: $placas,fecha: $fecha,cliente: $cliente}';
+    return 'Vehiculo{id: $id,imagen: $imagen, marca: $marca, modelo: $modelo,anio: $anio,motor:$motor, color: $color,vn: $vn,kms: $kms,placas: $placas,fecha: $fecha,cliente: $clienteNombre}';
   }
 }
 
@@ -65,6 +71,8 @@ class VehiculoAdapter extends TypeAdapter<Vehiculo> {
   @override
   Vehiculo read(BinaryReader reader) {
     return Vehiculo(
+
+      id: reader.read(),
       imagen: reader.read(),
       marca: reader.read(),
       modelo: reader.read(),
@@ -75,7 +83,7 @@ class VehiculoAdapter extends TypeAdapter<Vehiculo> {
       kms: reader.read(),
       placas: reader.read(),
       fecha: reader.read(),
-      cliente: reader.read(),
+      clienteNombre: reader.read(),
     );
   }
 
@@ -85,6 +93,7 @@ class VehiculoAdapter extends TypeAdapter<Vehiculo> {
 
   @override
   void write(BinaryWriter writer, Vehiculo obj) {
+    writer.write(obj.id);
     writer.write(obj.imagen);
     writer.write(obj.marca);
     writer.write(obj.modelo);
@@ -95,6 +104,6 @@ class VehiculoAdapter extends TypeAdapter<Vehiculo> {
     writer.write(obj.kms);
     writer.write(obj.placas);
     writer.write(obj.fecha);
-    writer.write(obj.cliente);
+    writer.write(obj.clienteNombre);
   }
 }

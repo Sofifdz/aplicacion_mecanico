@@ -10,10 +10,9 @@ class Taller extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var bb = Hive.openBox('vehiculos');
-    // var vehiculosbox = Hive.box('vehiculos').values.toList();
+    var box = Hive.box('vehiculos');
+    var vehiculosbox = Hive.box('vehiculos').values.toList();
     List<dynamic> vehiculos = [];
-    //var boxvehiculos = Hive.box('vehiculos');
 
     return Scaffold(
       appBar: AppBar(
@@ -33,6 +32,23 @@ class Taller extends StatelessWidget {
           ),
         ],
       ),
+      body: ListView.builder(
+          //    itemCount: box.length,
+          itemBuilder: (context, index) {
+        //     var b = boxvehiculos[index];
+
+        return Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            margin: EdgeInsets.all(20),
+            elevation: 3,
+            child: Row(children: <Widget>[
+              SizedBox(
+                height: 90,
+              ),
+              ImageIcon(vehiculosbox[index].imagen),
+            ]));
+      }),
       floatingActionButton: BotonEspeed(),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );

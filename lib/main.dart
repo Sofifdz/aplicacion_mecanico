@@ -1,23 +1,26 @@
 import 'package:aplicacion_mecanico/calendario2.0/event_provider.dart';
 import 'package:aplicacion_mecanico/calendario2.0/ver.dart';
+import 'package:aplicacion_mecanico/clases/claseVehiculo.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'clases/cliente.dart';
-import 'clases/vehiculo.dart';
+
 import 'componentes/botonNavBar.dart';
 
 Future<void> main() async {
-  runApp(const MyApp());
   await Hive.initFlutter();
 
   await Hive.openBox('clientes');
   Hive.registerAdapter(ClienteAdapter());
   List<Map<String, dynamic>> clientes = [];
+  print(clientes);
 
   await Hive.openBox('vehiculos');
   Hive.registerAdapter(VehiculoAdapter());
   List<Map<String, dynamic>> vehiculos = [];
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
