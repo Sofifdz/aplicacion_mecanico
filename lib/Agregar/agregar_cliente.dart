@@ -12,8 +12,6 @@ class AddCliente extends StatefulWidget {
 }
 
 class _AddClienteState extends State<AddCliente> {
-  final TextEditingController idcontroller = TextEditingController();
-
   final TextEditingController nombrecontroller = TextEditingController();
 
   final TextEditingController aliascontroller = TextEditingController();
@@ -41,6 +39,8 @@ class _AddClienteState extends State<AddCliente> {
           toolbarHeight: 70,
           centerTitle: true,
           title: const Text('Agregar Cliente'),
+          titleTextStyle:
+              GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
           backgroundColor: Colors.blue[900],
         ),
         body: SingleChildScrollView(
@@ -408,7 +408,6 @@ class _AddClienteState extends State<AddCliente> {
                 Navigator.pop(
                     context,
                     Cliente(
-                      id: idcontroller.text,
                       nombre: nombrecontroller.text,
                       alias: aliascontroller.text,
                       telefono: telefonocontroller.text,

@@ -110,11 +110,6 @@ class _NewCarroDeClienteDialogState extends State<NewCarroDeClienteDialog> {
                             if (vehiculo != null) {
                               final boxvehiculos = Hive.box('vehiculos');
                               boxvehiculos.add(vehiculo);
-                              final cliente = boxclientes.values.firstWhere(
-                                  (element) =>
-                                      element.nombre == selectedCliente);
-                              cliente.carros.add(vehiculo.id);
-                              boxclientes.put(cliente.key, cliente);
                             }
                           });
                         }

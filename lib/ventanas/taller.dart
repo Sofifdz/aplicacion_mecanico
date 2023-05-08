@@ -33,22 +33,22 @@ class Taller extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-          //    itemCount: box.length,
+          itemCount: box.length,
           itemBuilder: (context, index) {
-        //     var b = boxvehiculos[index];
+            var b = vehiculosbox[index];
 
-        return Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            margin: EdgeInsets.all(20),
-            elevation: 3,
-            child: Row(children: <Widget>[
-              SizedBox(
-                height: 90,
-              ),
-              ImageIcon(vehiculosbox[index].imagen),
-            ]));
-      }),
+            return Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.all(20),
+                elevation: 3,
+                child: Row(children: <Widget>[
+                  SizedBox(
+                    height: 90,
+                  ),
+                  ImageIcon(vehiculosbox[index].modelo),
+                ]));
+          }),
       floatingActionButton: BotonEspeed(),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );

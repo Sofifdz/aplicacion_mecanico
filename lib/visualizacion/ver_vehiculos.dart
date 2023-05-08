@@ -14,10 +14,9 @@ class Ver_Vehiculos extends StatefulWidget {
 }
 
 class _Ver_VehiculosState extends State<Ver_Vehiculos> {
-  // var bb = Hive.openBox('vehiculos');
-  //var box = Hive.box('vehiculos');
+  var box = Hive.box('vehiculos');
 
-  // var boxvehiculos = Hive.box('vehiculos').values.toList();
+  var boxvehiculos = Hive.box('vehiculos').values.toList();
   List<dynamic> vehiculos = [];
 
   @override
@@ -40,6 +39,23 @@ class _Ver_VehiculosState extends State<Ver_Vehiculos> {
           ),
         ],
       ),
+      body: ListView.builder(
+          itemCount: box.length,
+          itemBuilder: (context, index) {
+            var b = boxvehiculos[index];
+
+            return Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.all(20),
+                elevation: 3,
+                child: Row(children: <Widget>[
+                  SizedBox(
+                    height: 90,
+                  ),
+                  Text(boxvehiculos[index].modelo),
+                ]));
+          }),
       floatingActionButton: BotonEspeed(),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       //body: ListView.builder(itemBuilder: (context, index) {}),

@@ -90,6 +90,8 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Agregar vehiculo'),
+        titleTextStyle:
+            GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
         backgroundColor: Colors.blue[900],
         foregroundColor: Color.fromARGB(255, 255, 255, 255),
       ),
@@ -528,9 +530,6 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                 SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: () async {
-                    if (!_formKey.currentState!.validate()) {
-                      return;
-                    }
                     Navigator.pop(
                         context,
                         Vehiculo(
