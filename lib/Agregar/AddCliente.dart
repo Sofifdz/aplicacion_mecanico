@@ -285,15 +285,17 @@ class _AddClienteState extends State<AddCliente> {
                         telefono: telefonocontroller.text,
                         email: emailcontroller.text,
                         ciudad: ciudadcontroller.text));
-                showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                          title: Text(
-                            'Cliente Agregado correctamente',
-                            style: GoogleFonts.aBeeZee(fontSize: 14),
-                          ),
-                          backgroundColor: Colors.blue[250],
-                        ));
+                setState(() {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: Text(
+                              'Cliente Agregado correctamente',
+                              style: GoogleFonts.aBeeZee(fontSize: 14),
+                            ),
+                            backgroundColor: Colors.blue[250],
+                          ));
+                });
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

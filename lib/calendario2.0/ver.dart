@@ -3,6 +3,7 @@ import 'package:aplicacion_mecanico/calendario2.0/agg.dart';
 import 'package:aplicacion_mecanico/calendario2.0/eventData_source.dart';
 import 'package:aplicacion_mecanico/calendario2.0/event_provider.dart';
 import 'package:aplicacion_mecanico/calendario2.0/tasksWidget.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'package:syncfusion_flutter_calendar/calendar.dart';
@@ -14,7 +15,12 @@ class Calendariop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Calendario'),
+          toolbarHeight: 70,
+          centerTitle: true,
+          title: const Text('Calendario'),
+          titleTextStyle:
+              GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
+          backgroundColor: Colors.blue[900],
         ),
         body: body(context),
         floatingActionButton: FloatingActionButton(
