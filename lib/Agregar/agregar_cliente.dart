@@ -414,7 +414,7 @@ class _AddClienteState extends State<AddCliente> {
                       telefonoadicional: telefonoadicionalcontroller.text,
                       email: emailcontroller.text,
                       ciudad: ciudadcontroller.text,
-                      vehiculos: vehiculos,
+                      vehiculos: [],
                     ));
                 setState(() {
                   clientes = box.values.toList();

@@ -18,7 +18,7 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
   final _formKey = GlobalKey<FormState>();
   var boxclientess = Hive.openBox('clientes');
   var boxclientes = Hive.box('clientes').values.toList();
-  final TextEditingController imagencontroller = TextEditingController();
+  final ImagePicker _pickerr = ImagePicker();
   final TextEditingController marcacontroller = TextEditingController();
   final TextEditingController modelocontroller = TextEditingController();
   final TextEditingController aniocontroller = TextEditingController();
@@ -98,41 +98,6 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
       body: SingleChildScrollView(
           child: Stack(
         children: [
-          Column(
-            children: <Widget>[
-              Row(
-                children: [
-                  Expanded(
-                    child: _imageFile != null
-                        ? Image.file(
-                            _imageFile!,
-                            fit: BoxFit.fitWidth,
-                            height: 200,
-                          )
-                        : Container(
-                            height: 200,
-                            color: Color.fromARGB(162, 134, 134, 134),
-                          ),
-                  )
-                ],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: 150,
-                  ),
-                  ElevatedButton(
-                      onPressed: () => _pickImage(ImageSource.camera),
-                      child: Icon(Icons.camera_alt, size: 40)),
-                ],
-              ),
-            ],
-          ),
           Column(children: [
             SizedBox(
               height: 230,
@@ -533,7 +498,6 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                     Navigator.pop(
                         context,
                         Vehiculo(
-                          imagen: imagencontroller.text,
                           marca: marcacontroller.text,
                           modelo: modelocontroller.text,
                           anio: aniocontroller.text,
@@ -543,8 +507,6 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
                           kms: kmscontroller.text,
                           placas: placascontroller.text,
                           fecha: fechaController.text,
-                          clienteNombre: clientecontroller.text,
-                          id: '',
                         ));
                   },
                   style: ElevatedButton.styleFrom(

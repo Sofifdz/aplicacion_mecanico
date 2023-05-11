@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 
+import '../clases/cliente.dart';
+
 class NewCarroDeClienteDialog extends StatefulWidget {
   @override
   _NewCarroDeClienteDialogState createState() =>
@@ -111,7 +113,29 @@ class _NewCarroDeClienteDialogState extends State<NewCarroDeClienteDialog> {
                               final boxvehiculos = Hive.box('vehiculos');
                               boxvehiculos.add(vehiculo);
                             }
+                            /*  Cliente porNombre = boxclientes.values.firstWhere(
+                                (element) => element.nombre == selectedCliente,
+                                orElse: () => Cliente(
+                                      nombre: '',
+                                      telefono: '',
+                                      alias: '',
+                                      ciudad: '',
+                                      email: '',
+                                      telefonoadicional: '',
+                                      vehiculos: [],
+                                    ));
+                            print('0');
+                            print('1');
+
+                            porNombre.vehiculos.add(vehiculo);
+                            print('2');
+
+                            boxclientes.put(
+                                boxclientes.values.toList().indexOf(porNombre),
+                                porNombre);
+                            print('3');*/
                           });
+                          print('4');
                         }
                       : null,
                   child: Text('Agregar Vehiculo'),
