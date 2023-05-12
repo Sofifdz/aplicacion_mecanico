@@ -40,6 +40,8 @@ class _AgregarCitaState extends State<AgregarCita> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70,
+        backgroundColor: Colors.blue[900],
         leading: CloseButton(),
         actions: acciones(),
       ),

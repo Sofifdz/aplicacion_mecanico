@@ -1,3 +1,4 @@
+import 'package:aplicacion_mecanico/componentes/barradbusquedaautos.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
@@ -27,7 +28,7 @@ class Taller extends StatelessWidget {
             icon: Icon(Icons.search),
             onPressed: () {
               showSearch(
-                  context: context, delegate: BarradeBusqueda(vehiculos));
+                  context: context, delegate: BarradeBusquedaAutos(vehiculos));
             },
           ),
         ],
@@ -38,6 +39,7 @@ class Taller extends StatelessWidget {
             var b = vehiculosbox[index];
 
             return Card(
+                color: Colors.blue[500],
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 margin: EdgeInsets.all(20),

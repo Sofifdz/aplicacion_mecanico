@@ -100,7 +100,7 @@ class _VAgregarVehiculoState extends State<VAgregarVehiculo> {
         children: [
           Column(children: [
             SizedBox(
-              height: 230,
+              height: 30,
             ),
             Row(
               children: [

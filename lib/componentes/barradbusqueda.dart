@@ -59,6 +59,7 @@ class BarradeBusqueda extends SearchDelegate<Cliente> {
           var v = boxclientes.getAt(index);
 
           return Card(
+              color: Color.fromARGB(255, 193, 196, 203),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               margin: EdgeInsets.all(20),

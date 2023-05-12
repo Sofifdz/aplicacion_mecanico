@@ -1,3 +1,7 @@
+import 'package:aplicacion_mecanico/paquetes/p3.ServicioDeSuspencion.dart';
+import 'package:aplicacion_mecanico/paquetes/p4.ServicioDIreccionHidraulica.dart';
+import 'package:aplicacion_mecanico/paquetes/p5.CondicionesdelMotor.dart';
+import 'package:aplicacion_mecanico/paquetes/p6.CondicionesEnfriamiento.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -5,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 
 import '../clases/claseVehiculo.dart';
+import '../paquetes/p1.AfinacionMayorCompleta.dart';
+import '../paquetes/p2.ServicioDeFrenos.dart';
 
 class V_Servicios extends StatefulWidget {
   const V_Servicios({super.key});
@@ -15,8 +21,11 @@ class V_Servicios extends StatefulWidget {
 
 class _V_Servicios extends State<V_Servicios> {
   List<Vehiculo> vehiculos = [];
-  var box = Hive.box('clientes');
-  var clientesbox = Hive.box('clientes').values.toList();
+  var boxc = Hive.box('clientes');
+  var box = Hive.box('vehiculos');
+  var clientesbox = Hive.box('vehiculos').values.toList();
+  var clientesboxx = Hive.box('clientes').values.toList();
+  var servbox = Hive.box('servicios');
 
   bool isChecked = false;
   @override
@@ -34,146 +43,181 @@ class _V_Servicios extends State<V_Servicios> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-          toolbarHeight: 70,
-          centerTitle: true,
-          title: const Text('Detalles'),
-          titleTextStyle:
-              GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
-          backgroundColor: Colors.blue[900]),
-      body: ListView(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+        appBar: AppBar(
+            toolbarHeight: 70,
+            centerTitle: true,
+            title: const Text('Detalles'),
+            titleTextStyle: GoogleFonts.montserrat(
+                fontSize: 25, fontWeight: FontWeight.bold),
+            backgroundColor: Colors.blue[900]),
+        body: ListView.builder(
+            itemCount: box.length,
+            itemBuilder: (context, index) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Marca y modelo \n del carro',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.roboto(
-                        fontSize: 34, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Nombre del cliente',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.roboto(
-                        fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 60,
-          ),
-          Column(children: [
-            SizedBox(
-              height: 100,
-              width: 250,
-              child: DefaultTabController(
-                initialIndex: 1,
-                length: 3,
-                child: Scaffold(
-                  appBar: AppBar(
-                    title: const Text('TabBar Widget'),
-                    bottom: const TabBar(
-                      tabs: <Widget>[
-                        Tab(
-                          text: 'Servicio 1',
-                        ),
-                        Tab(
-                          text: 'Servicio 1',
-                        ),
-                        Tab(
-                          text: 'Servicio 3',
-                        ),
-                        Tab(
-                          text: 'Servicio 4',
-                        ),
-                        Tab(
-                          text: 'Servicio 5',
-                        ),
-                        Tab(
-                          text: 'Servicio 6',
-                        ),
-                      ],
-                    ),
-                  ),
-                  body: const TabBarView(
-                    children: <Widget>[
-                      Center(
-                        child: Text("Servicio 1"),
-                      ),
-                      Center(
-                        child: Text("Servicio 2"),
-                      ),
-                      Center(
-                        child: Text("Servicio 3"),
-                      ),
-                      Center(
-                        child: Text("Servicio 4"),
-                      ),
-                      Center(
-                        child: Text("Servicio 5"),
-                      ),
-                      Center(
-                        child: Text("Servicio 6"),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        clientesbox[index].marca,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                            fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
-                ),
-              ),
-            )
-          ]),
-          /*  SizedBox(
-            height: 0,
-          ),
-          SizedBox(
-            height: 30,
-          ),*/
-          // BotonAd2(context),
-        ],
-      ),
-    );
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Marca del vehicul0',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        clientesbox[index].modelo,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Modelo del vehiculo',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        clientesboxx[index].nombre,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Nombre del cliente',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 900,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.blue.shade900,
+                              width: 2,
+                            ),
+                            color: Colors.blue[900],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 15),
+                              Padding(
+                                  padding: EdgeInsets.all(15),
+                                  child: SizedBox(
+                                    height: 850,
+                                    width: 800,
+                                    child: DefaultTabController(
+                                      initialIndex: 1,
+                                      length: 6,
+                                      child: Scaffold(
+                                        appBar: AppBar(
+                                          foregroundColor: Colors.blue[900],
+                                          backgroundColor: Colors.blue[900],
+                                          toolbarHeight: 20,
+                                          bottom: const TabBar(
+                                            tabs: <Widget>[
+                                              Tab(
+                                                text: '1',
+                                              ),
+                                              Tab(
+                                                text: '2',
+                                              ),
+                                              Tab(
+                                                text: '3',
+                                              ),
+                                              Tab(
+                                                text: '4',
+                                              ),
+                                              Tab(
+                                                text: '5',
+                                              ),
+                                              Tab(
+                                                text: '6',
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        body: TabBarView(
+                                          children: <Widget>[
+                                            Paquete1(),
+                                            Paquete3(),
+                                            ServicioSuspencion(),
+                                            ServicioDireccionHidrahulica(),
+                                            CondicionesMotor(),
+                                            Paquete6(),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  BotonAd2(context),
+                  SizedBox(
+                    height: 30,
+                  )
+                ],
+              );
+            }));
   }
 
-  Widget BotonAd(BuildContext context) => SizedBox(
-        height: 45,
-        child: Row(children: [
-          const SizedBox(width: 100),
-          SizedBox(
-            width: 200,
-            height: 180,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                backgroundColor: Color.fromRGBO(70, 98, 255, 1),
-                minimumSize: const Size(150, 60),
-              ),
-              child: Text(
-                'Servicios',
-                style: GoogleFonts.hanuman(fontSize: 19),
-              ),
-            ),
-          ),
-        ]),
-      );
   Widget BotonAd2(BuildContext context) => SizedBox(
       height: 45,
       child: Row(children: [
         const SizedBox(
-          width: 20,
+          width: 40,
         ),
         SizedBox(
           width: 150,
@@ -183,15 +227,19 @@ class _V_Servicios extends State<V_Servicios> {
               Navigator.pop(context);
             },
             style: ElevatedButton.styleFrom(
+              primary: Color.fromARGB(255, 195, 214, 255),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
               ),
-              backgroundColor: Color.fromARGB(255, 156, 170, 252),
-              minimumSize: const Size(150, 60),
+              elevation: 5,
             ),
             child: Text(
               'Aceptar',
-              style: GoogleFonts.hanuman(fontSize: 19),
+              style: GoogleFonts.hanuman(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
             ),
           ),
         ),
@@ -206,15 +254,19 @@ class _V_Servicios extends State<V_Servicios> {
               Navigator.pop(context);
             },
             style: ElevatedButton.styleFrom(
+              primary: Color.fromARGB(255, 195, 214, 255),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
               ),
-              backgroundColor: Color.fromARGB(255, 156, 170, 252),
-              minimumSize: const Size(150, 60),
+              elevation: 5,
             ),
             child: Text(
               'Cancelar',
-              style: GoogleFonts.hanuman(fontSize: 19),
+              style: GoogleFonts.hanuman(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
             ),
           ),
         ),

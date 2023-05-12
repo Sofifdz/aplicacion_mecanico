@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-@HiveType(typeId: 2)
+@HiveType(typeId: 3)
 class Citas extends HiveObject {
   @HiveField(0)
   String titulo = '';
@@ -57,7 +57,7 @@ class CitasAdapter extends TypeAdapter<Citas> {
 
   @override
   // TODO: implement typeId
-  int get typeId => 2;
+  int get typeId => 3;
 
   @override
   void write(BinaryWriter writer, Citas obj) {

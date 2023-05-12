@@ -115,6 +115,7 @@ class Ver_clientesState extends State<Ver_clientes> {
             final cliente = clientesbox[index];
 
             return Card(
+                color: Color.fromARGB(255, 193, 196, 203),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 margin: EdgeInsets.all(20),
@@ -162,9 +163,14 @@ class Ver_clientesState extends State<Ver_clientes> {
                           MaterialPageRoute(
                             builder: (context) => Scaffold(
                                 appBar: AppBar(
+                                  centerTitle: true,
+                                  toolbarHeight: 70,
+                                  titleTextStyle: GoogleFonts.montserrat(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                   backgroundColor: Colors.blue[900],
                                   title: const Text(
-                                    'Detalles del cliente,',
+                                    'Detalles del cliente',
                                   ),
                                 ),
                                 body: Stack(
@@ -214,6 +220,12 @@ class Ver_clientesState extends State<Ver_clientes> {
                                                       itemBuilder:
                                                           (context, index) {
                                                         return Card(
+                                                            color:
+                                                                Color.fromARGB(
+                                                                    255,
+                                                                    193,
+                                                                    196,
+                                                                    203),
                                                             shape: RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
@@ -266,12 +278,6 @@ class Ver_clientesState extends State<Ver_clientes> {
                                                                             1,
                                                                         child: Text(
                                                                             "Mas detalles"),
-                                                                      ),
-                                                                      PopupMenuItem(
-                                                                        value:
-                                                                            2,
-                                                                        child: Text(
-                                                                            "Eliminar Cliente"),
                                                                       ),
                                                                     ],
                                                                     initialValue:
@@ -605,7 +611,7 @@ class Ver_clientesState extends State<Ver_clientes> {
                                                                                                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                                                                                                 child: Text(
                                                                                                   'Actualizar',
-                                                                                                  style: TextStyle(
+                                                                                                  style: GoogleFonts.hanuman(
                                                                                                     fontSize: 20,
                                                                                                     fontWeight: FontWeight.bold,
                                                                                                     color: Color.fromARGB(255, 0, 0, 0),
@@ -623,14 +629,7 @@ class Ver_clientesState extends State<Ver_clientes> {
                                                                                     height: 20,
                                                                                   ),
                                                                                   ElevatedButton(
-                                                                                    style: ElevatedButton.styleFrom(
-                                                                                        textStyle: const TextStyle(
-                                                                                          fontSize: 28,
-                                                                                        ),
-                                                                                        backgroundColor: Color.fromARGB(255, 255, 86, 86),
-                                                                                        elevation: 10,
-                                                                                        shadowColor: Color.fromARGB(255, 149, 179, 255),
-                                                                                        minimumSize: Size(150, 70)),
+                                                                                    style: ElevatedButton.styleFrom(textStyle: GoogleFonts.hanuman(fontSize: 28, fontWeight: FontWeight.bold), backgroundColor: Color.fromARGB(255, 255, 86, 86), elevation: 10, shadowColor: Color.fromARGB(255, 149, 179, 255), minimumSize: Size(150, 70)),
                                                                                     onPressed: () {
                                                                                       showDialog(
                                                                                           context: context,
@@ -682,9 +681,6 @@ class Ver_clientesState extends State<Ver_clientes> {
                                                                           ),
                                                                         );
                                                                       }
-
-                                                                      if (value ==
-                                                                          2) {}
                                                                     },
                                                                     icon: Icon(Icons
                                                                         .more_vert_outlined),
@@ -1089,7 +1085,8 @@ class Ver_clientesState extends State<Ver_clientes> {
                                                                         10),
                                                             child: Text(
                                                               'Actualizar',
-                                                              style: TextStyle(
+                                                              style: GoogleFonts
+                                                                  .hanuman(
                                                                 fontSize: 20,
                                                                 fontWeight:
                                                                     FontWeight

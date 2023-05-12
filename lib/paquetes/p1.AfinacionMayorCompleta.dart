@@ -67,6 +67,14 @@ class _Paquete1State extends State<Paquete1> {
         SizedBox(
           height: 20,
         ),
+        Text(
+          'Afinacion mayor completa',
+          style:
+              GoogleFonts.montserrat(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 20,
+        ),
         title(context),
         Row(
           children: [

@@ -1,13 +1,15 @@
 import 'package:aplicacion_mecanico/calendario2.0/event_provider.dart';
 import 'package:aplicacion_mecanico/calendario2.0/ver.dart';
 import 'package:aplicacion_mecanico/clases/claseVehiculo.dart';
+import 'package:aplicacion_mecanico/clases/cotizaciones.dart';
+import 'package:aplicacion_mecanico/clases/gasto.dart';
+import 'package:aplicacion_mecanico/clases/servicios.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'clases/cliente.dart';
 
 import 'componentes/botonNavBar.dart';
-import 'package:aplicacion_mecanico/visualizacion/Ventana_servicios.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
@@ -20,6 +22,18 @@ Future<void> main() async {
   await Hive.openBox('vehiculos');
   Hive.registerAdapter(VehiculoAdapter());
   List<Map<String, dynamic>> vehiculos = [];
+
+  await Hive.openBox('servicios');
+  Hive.registerAdapter(ServiciosAdapter());
+  List<Map<String, dynamic>> servicios = [];
+
+  await Hive.openBox('gastos');
+  Hive.registerAdapter(GastoAdapter());
+  List<Map<String, dynamic>> gastos = [];
+
+  await Hive.openBox('cotizaciones');
+  Hive.registerAdapter(CotizacionAdapter());
+  List<Map<String, dynamic>> cotizaciones = [];
 
   runApp(const MyApp());
 }
