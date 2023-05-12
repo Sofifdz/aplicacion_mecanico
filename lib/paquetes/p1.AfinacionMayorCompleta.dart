@@ -376,7 +376,7 @@ class _Paquete1State extends State<Paquete1> {
               width: 20,
             ),
             Text(
-              'Carbcln',
+              'Carbon',
               style: GoogleFonts.hanuman(fontSize: 18),
             ),
             Checkbox(

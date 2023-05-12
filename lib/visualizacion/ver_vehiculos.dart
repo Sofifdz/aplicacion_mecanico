@@ -2,7 +2,6 @@ import 'package:aplicacion_mecanico/componentes/barradbusqueda.dart';
 import 'package:aplicacion_mecanico/componentes/barradbusquedaautos.dart';
 import 'package:aplicacion_mecanico/componentes/botonspeed.dart';
 import 'package:aplicacion_mecanico/visualizacion/Nuevov_Detallesservicio.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';

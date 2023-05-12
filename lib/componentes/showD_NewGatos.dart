@@ -1,5 +1,5 @@
 import 'package:aplicacion_mecanico/clases/gasto.dart';
-import 'package:aplicacion_mecanico/visualizacion/v_detallesservicio.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
